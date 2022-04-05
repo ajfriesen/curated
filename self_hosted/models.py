@@ -10,6 +10,8 @@ def default_time():
 class App(models.Model):
     pub_date = models.DateTimeField('date published', default=default_time)
     app_name = models.CharField(max_length=250)
+    slug = AutoSlugField(populate_from=['app_name'])
+
 
     def __str__(self):
         return self.app_name
