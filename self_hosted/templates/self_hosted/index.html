@@ -1,10 +1,15 @@
+{% extends 'self_hosted/base.html' %}
 
-{% if latest_app_list %}
-    <ul>
-    {% for app in latest_app_list %}
-        <li><a href="{% url 'detail' app.id %}">{{ app.app_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% block content %}
+    <h1> Self-Hosted Landscape</h1>
+
+    {% if latest_app_list %}
+        <ul>
+        {% for app in latest_app_list %}
+            <li><a href="{% url 'self-hosted:detail' app.id %}">{{ app.app_name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No apps yet.</p>
+    {% endif %}
+{% endblock %}
