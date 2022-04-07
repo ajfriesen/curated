@@ -1,4 +1,6 @@
+from statistics import mode
 from django.db import models
+from django.forms import FileField
 from django.utils import timezone
 from django_extensions.db.fields import AutoSlugField
 
@@ -13,6 +15,8 @@ class App(models.Model):
     app_name = models.CharField(max_length=250)
     description = models.TextField(default="")
     slug = AutoSlugField(populate_from=['app_name'])
+    svg_logo = models.FileField(upload_to='media/logos/', default='300x300.svg')
+
 
 
     def __str__(self):
