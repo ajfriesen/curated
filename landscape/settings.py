@@ -12,6 +12,21 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False),
+    SECRET_KEY=(str, 'django-insecure-ur5y7+d#j9)j)34wd=sow*c-d=at4i3si5dn590&@p3wz2ynnw'),
+    ALLOWED_HOSTS=(list, ['localhost', '127.0.0.1']),
+    DATABASE_HOST=(str, 'postgres'),
+    DATABASE_USER=(str, 'postgres'),
+    DATABASE_PASSWORD=(str, 'postgres'),
+    DATABASE_PORT=(int, 9000),
+    DATABASE_NAME=(str, 'postgres')
+
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +35,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ur5y7+d#j9)j)34wd=sow*c-d=at4i3si5dn590&@p3wz2ynnw'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -78,11 +93,11 @@ WSGI_APPLICATION = 'landscape.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': 9000,
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
