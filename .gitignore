@@ -8,8 +8,9 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
+media/
 
 
 .idea/
 .env
+.github-*
