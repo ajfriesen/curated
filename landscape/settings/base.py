@@ -19,11 +19,11 @@ env = environ.Env(
     DEBUG=(bool, True),
     SECRET_KEY=(str, 'django-insecure-ur5y7+d#j9)j)34wd=sow*c-d=at4i3si5dn590&@p3wz2ynnw'),
     ALLOWED_HOSTS=(list, ['localhost', '127.0.0.1']),
-    DATABASE_HOST=(str, 'postgres'),
-    DATABASE_USER=(str, 'postgres'),
-    DATABASE_PASSWORD=(str, 'postgres'),
+    DATABASE_URL=(str, 'localhost'),
+    POSTGRES_USER=(str, 'postgres'),
+    POSTGRES_PASSWORD=(str, 'postgres'),
     DATABASE_PORT=(int, 9000),
-    DATABASE_NAME=(str, 'postgres')
+    POSTGRES_DB=(str, 'postgres')
 
 )
 
@@ -95,10 +95,10 @@ WSGI_APPLICATION = 'landscape.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('DATABASE_URL'),
         'PORT': env('DATABASE_PORT'),
     }
 }
