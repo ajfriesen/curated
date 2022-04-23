@@ -1,54 +1,21 @@
+Will come later
 
 
-needed packages:
-
-sudo apt-get install libpq-dev
-
-
-
-# brick-flow
-
-## Install django
+# notes
 
 ```
-python3 --version
-Python 3.6.9
-```
-
-## Database stuff
-
-### Create database and user
-
-sudo su - postgres
-
-psql
-
-CREATE DATABASE brick_flow;
-
-CREATE USER brick_flow WITH PASSWORD 'password';
-
-GRANT ALL PRIVILEGES ON DATABASE brick_flow TO brick_flow;
-
-
-Add priviledge to create databases for tests:
-
-```
-ALTER USER brick_flow CREATEDB;
+python manage.py runserver --settings landscape.settings.local
 ```
 
 
-# notizen
+- https://www.caktusgroup.com/blog/2017/03/14/production-ready-dockerfile-your-python-django-app/
 
-docker-compose up
+- https://whitenoise.evans.io/en/stable/django.html
 
-docker-compose run web python manage.py createsuperuser
+# Build and push to docker
 
-docker-compose run web python manage.py makemigrations
-
-docker-compose run web python manage.py migrate
-
-https://www.youtube.com/watch?v=EX6Tt-ZW0so
-
-
-# passwort
-asdfasdfasdf
+```
+source .github-package-token 
+echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+docker build -t ghcr.io/ajfriesen/landscape:latest . && docker push ghcr.io/ajfriesen/landscape:latest
+```
