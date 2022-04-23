@@ -46,4 +46,4 @@ RUN python manage.py collectstatic --noinput
 ENTRYPOINT ["./entrypoint.sh"]
 
 # Start uWSGI
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "landscape.wsgi:application"]
+CMD ["gunicorn", "--log-level", "info", "--bind", ":8000", "--workers", "3", "landscape.wsgi:application"]
