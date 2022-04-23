@@ -15,7 +15,7 @@ class App(models.Model):
     app_name = models.CharField(max_length=250)
     description = models.TextField(default="", blank=True)
     slug = AutoSlugField(populate_from=['app_name'])
-    svg_logo = models.FileField(upload_to='logos', default="",blank=True)
+    svg_logo = models.FileField(upload_to='logos/', default="",blank=True)
 
 
 
