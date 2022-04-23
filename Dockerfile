@@ -41,7 +41,7 @@ ENV DJANGO_SETTINGS_MODULE=landscape.settings.prod
 RUN python manage.py collectstatic --noinput
 
 # Change to a non-root user
-USER ${APP_USER}:${APP_USER}
+# USER ${APP_USER}:${APP_USER}
 
 ENTRYPOINT ["./entrypoint.sh"]
 
