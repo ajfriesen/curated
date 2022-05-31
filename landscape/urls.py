@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include('self_hosted.urls')),
     path('admin/', admin.site.urls),
+    # path("accounts/", include("django.contrib.auth.urls")),
+
 ]
 
 # This will only run in debug mode
