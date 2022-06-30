@@ -28,6 +28,10 @@ Migrate:
 
 `python manage.py migrate`
 
+## Run local 
+
+`python manage.py runserver --settings landscape.settings.local`
+
 
 
 
@@ -42,3 +46,7 @@ source .github-package-token
 echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 docker build -t ghcr.io/ajfriesen/landscape:latest . && docker push ghcr.io/ajfriesen/landscape:latest
 ```
+
+# Celery
+
+`celery -A landscape worker -l INFO`
