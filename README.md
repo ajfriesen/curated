@@ -1,11 +1,34 @@
-Will come later
+# Curated
 
+A django application for curating content.
 
-# notes
+## Setup dev environment
+
+Starting the db:
+`docker compose up -d`
+
+Set up super user:
+
+`python manage.py createsuperuser`
+
+user=admin
+password=asdfasdfasdf
+
+Running the local python environment:
 
 ```
 python manage.py runserver --settings landscape.settings.local
 ```
+
+Creating migrations:
+
+`python manage.py makemigrations`
+
+Migrate:
+
+`python manage.py migrate`
+
+
 
 
 - https://www.caktusgroup.com/blog/2017/03/14/production-ready-dockerfile-your-python-django-app/
