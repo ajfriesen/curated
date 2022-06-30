@@ -5,6 +5,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import App
 from .forms import AddAppForm
 
+def home(request):
+    return render(request, "self_hosted/home.html")
+
 def index(request):
     latest_app_list = App.objects.order_by('-pub_date')[:20]
     context = {'latest_app_list': latest_app_list}
