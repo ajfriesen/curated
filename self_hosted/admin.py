@@ -4,4 +4,9 @@ from django.contrib import admin
 
 from .models import App
 
-admin.site.register(App)
+@admin.register(App)
+class App(admin.ModelAdmin):
+    list_display= ['app_name', 'get_tags']
+
+    def get_tags(self, object):
+        return ", ".join (obj for obj in object.tags.names())
