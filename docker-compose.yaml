@@ -13,5 +13,13 @@ services:
       - django-landscape-postgres:/var/lib/postgresql/data 
     restart: unless-stopped
 
+  curated-message-broker:
+    image: rabbitmq:3.10
+    ports:
+      - 5672:5672
+    volumes:
+      - curated-message-broker:/var/lib/rabbitmq
+    restart: unless-stopped
 volumes:
   django-landscape-postgres:
+  curated-message-broker:
