@@ -2,6 +2,17 @@
 
 {% block content %}
 
+<h1>Tags</h1>
+
+<div class="col-lg-6 col-xxl-4 mb-5">
+    <div class="card bg-light border-0 h-100">
+            {% for tag in tag_list %}
+            <p> <span class="btn btn-secondary">{{ tag.name }} {{tag.slug}}</span></p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 <h1>Self-hosted</h1>
 
 {% if latest_app_list %}

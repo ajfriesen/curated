@@ -3,7 +3,7 @@ from django.db import models
 from django.forms import FileField
 from django.utils import timezone
 from django_extensions.db.fields import AutoSlugField
-
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -17,6 +17,8 @@ class App(models.Model):
     github_url = models.URLField(default="", blank=True, max_length=300)
     slug = AutoSlugField(populate_from=['app_name'])
     svg_logo = models.FileField(upload_to='logos/', default="",blank=True)
+
+    tags = TaggableManager()
 
 
 
