@@ -1,6 +1,6 @@
 # from __future__ import absolute_import
 import os
-from celery import Celery
+from __future__ import absolute_import, unicode_literals
 # from django.conf import settings
 
 # Set the default Django settings module for the 'celery' program.
