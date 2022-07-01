@@ -50,3 +50,11 @@ docker build -t ghcr.io/ajfriesen/landscape:latest . && docker push ghcr.io/ajfr
 # Celery
 
 `celery -A landscape worker -l INFO`
+
+
+
+# Sources
+
+- [django filters](https://simpleisbetterthancomplex.com/tutorial/2016/11/28/how-to-filter-querysets-dynamically.html)
+- [django-filter with django-taggit](https://github.com/carltongibson/django-filter/issues/1200)
+- [django-taggit with tag filters](https://www.youtube.com/watch?v=dZywiX-Glu4)
