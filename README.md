@@ -17,7 +17,7 @@ password=asdfasdfasdf
 Running the local python environment:
 
 ```
-python manage.py runserver --settings landscape.settings.local
+python manage.py runserver --settings curated.settings.local
 ```
 
 Creating migrations:
@@ -30,7 +30,7 @@ Migrate:
 
 ## Run local 
 
-`python manage.py runserver --settings landscape.settings.local`
+`python manage.py runserver --settings curated.settings.local`
 
 
 
@@ -44,12 +44,12 @@ Migrate:
 ```
 source .github-package-token 
 echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
-docker build -t ghcr.io/ajfriesen/landscape:latest . && docker push ghcr.io/ajfriesen/landscape:latest
+docker build -t ghcr.io/ajfriesen/curated:latest . && docker push ghcr.io/ajfriesen/curated:latest
 ```
 
 # Celery
 
-`celery -A landscape worker -l INFO`
+`celery -A curated worker -l INFO`
 
 
 

@@ -1,4 +1,4 @@
-# import landscape
+# import curated
 from .base import *
 
 STATIC_ROOT = BASE_DIR / "staticfiles"

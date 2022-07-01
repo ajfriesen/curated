@@ -16,9 +16,9 @@ services:
         # networks:
         #     - web
 
-    landscape:
+    curated:
         restart: always
-        image: ghcr.io/ajfriesen/landscape:latest
+        image: ghcr.io/ajfriesen/curated:latest
         # expose:
         #     - 8000
         environment:
@@ -29,13 +29,13 @@ services:
         env_file:
             - .env
         depends_on:
-            - landscape-db
+            - curated-db
         # networks:
         #     - web
 
-    landscape-db:
+    curated-db:
         restart: always
-        container_name: landscape-db
+        container_name: curated-db
         image: postgres:14.2
         volumes:
             - ./data/postgres:/var/lib/postgresql/data

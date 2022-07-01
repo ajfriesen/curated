@@ -3,8 +3,8 @@ from celery import Celery
 import os
 
 # Set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'landscape.settings')
-app = Celery('landscape')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'curated.settings')
+app = Celery('curated')
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.

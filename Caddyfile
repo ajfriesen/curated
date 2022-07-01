@@ -9,7 +9,7 @@
 ######
 
 curated.ajfriesen.com {
-    reverse_proxy landscape:8000 {
+    reverse_proxy curated:8000 {
         lb_try_duration 30s
     }
 }

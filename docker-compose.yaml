@@ -10,7 +10,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
-      - django-landscape-postgres:/var/lib/postgresql/data 
+      - django-curated-postgres:/var/lib/postgresql/data 
     restart: unless-stopped
 
   curated-message-broker:
@@ -21,5 +21,5 @@ services:
       - curated-message-broker:/var/lib/rabbitmq
     restart: unless-stopped
 volumes:
-  django-landscape-postgres:
+  django-curated-postgres:
   curated-message-broker:

@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED 1
 
 # User and group to run the app
-ARG APP_USER=landscape
+ARG APP_USER=curated
 RUN groupadd -r ${APP_USER} && useradd --no-log-init -r -g ${APP_USER} ${APP_USER}
 
 # Install package needed for the application
@@ -35,7 +35,7 @@ COPY . /code/
 EXPOSE 8000
 
 # Add any static environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=landscape.settings.prod
+ENV DJANGO_SETTINGS_MODULE=curated.settings.prod
 
 # Call collectstatic (customize the following line with the minimal environment variables needed for manage.py to run):
 RUN python manage.py collectstatic --noinput
@@ -46,4 +46,4 @@ RUN python manage.py collectstatic --noinput
 ENTRYPOINT ["./entrypoint.sh"]
 
 # Start uWSGI
-CMD ["gunicorn", "--log-level", "info", "--bind", ":8000", "--workers", "3", "landscape.wsgi:application"]
+CMD ["gunicorn", "--log-level", "info", "--bind", ":8000", "--workers", "3", "curated.wsgi:application"]
