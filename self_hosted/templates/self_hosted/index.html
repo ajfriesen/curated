@@ -1,35 +1,46 @@
-{% extends 'self_hosted/base.html' %}
+{% extends 'self_hosted/base-new.html' %}
+{% load static %}
 
 {% block content %}
 
-<h1>Tags</h1>
-
-<div class="col-lg-6 col-xxl-4 mb-5">
+{% comment %} <div class="col-lg-6 col-xxl-4 mb-5">
         {% for tag in tags %}
         <a href="{% url 'self_hosted:tagged' tag.slug %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{{ tag.name }}</a>
         {% endfor %}
         </div>
-</div>
+</div> {% endcomment %}
 
-<h1>Self-hosted</h1>
+{% comment %} <div class="p-1 cold-md-12">
+    <button type="button" class="btn btn-secondary">
+        Firewall <span class="badge text-bg-secondary">4</span>
+    </button>
+</div> {% endcomment %}
 
 {% if apps %}
 
 {% for app in apps %}
-<div class="col-lg-6 col-xxl-4 mb-5">
-    <div class="card bg-light border-0 h-100">
-        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            {% if app.svg_logo %}
-                <img src="{{ app.svg_logo.url }}" width="80" height="80 alt="Responsive image" class="img-fluid">
-            {% else %}
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-image"></i></div>
-            {% endif %}
-            <h2 class="fs-4 fw-bold">{{ app.app_name}}</h2>
-            <p class="mb-0">{{ app.description }}</p>
-            <a href="{% url 'self-hosted:detail' app.id %}" class="card-link">Details</a>
-        </div>
+{% comment %} <div class="row row-cols-1 row-cols-md-3 g-4"> {% endcomment %}
+
+<div class="col pb-3">
+    <div class="card h-100 text-center">
+        {% if app.svg_logo %}
+            <img src="{{ app.svg_logo.url }}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
+        {% else %}
+            <img src="{% static 'self_hosted/images/placeholder-image.svg' %}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ app.app_name}}</h5>
+        <p class="card-text">{{ app.description }}</p>
+        <a href="{% url 'self-hosted:detail' app.id %}" class="card-link">Details</a>
+        <a href="#" class="card-link">To Project</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
     </div>
 </div>
+{% comment %} </div> {% endcomment %}
+
 
 
 {% endfor %}
@@ -38,6 +49,8 @@
 {% else %}
 <p>No apps yet.</p>
 {% endif %}
+
+<br>
 
 <div class="pagination">
     <span class="step-links">
@@ -56,6 +69,26 @@
         {% endif %}
     </span>
 </div>
+test
+---
+tests
+<br>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="{{ page_obj.previous_page_number }}">Previous</a></li>
+      {% endif %}
+
+      <li class="page-item"><a class="page-link" href="#">0</a></li>
+      <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+      <li class="page-item"><a class="page-link" href="#">300</a></li>
+      {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="{{ page_obj.next_page_number }}">Next</a></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="{{ page_obj.paginator.num_pages }}">Last</a></li>
+    </ul>
+  </nav>
 
     
 {% endblock %}
