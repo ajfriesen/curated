@@ -3,23 +3,9 @@
 
 {% block content %}
 
-{% comment %} <div class="col-lg-6 col-xxl-4 mb-5">
-        {% for tag in tags %}
-        <a href="{% url 'self_hosted:tagged' tag.slug %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{{ tag.name }}</a>
-        {% endfor %}
-        </div>
-</div> {% endcomment %}
-
-{% comment %} <div class="p-1 cold-md-12">
-    <button type="button" class="btn btn-secondary">
-        Firewall <span class="badge text-bg-secondary">4</span>
-    </button>
-</div> {% endcomment %}
-
 {% if apps %}
 
 {% for app in apps %}
-{% comment %} <div class="row row-cols-1 row-cols-md-3 g-4"> {% endcomment %}
 
 <div class="col pb-3">
     <div class="card h-100 text-center">
@@ -50,7 +36,6 @@
 <p>No apps yet.</p>
 {% endif %}
 
-<br>
 
 <div class="pagination">
     <span class="step-links">
@@ -69,29 +54,5 @@
         {% endif %}
     </span>
 </div>
-test
----
-tests
-<br>
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-      {% if page_obj.has_previous %}
-        <li class="page-item"><a class="page-link" href="{{ page_obj.previous_page_number }}">Previous</a></li>
-      {% endif %}
-
-      <li class="page-item"><a class="page-link" href="#">0</a></li>
-      <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
-      <li class="page-item"><a class="page-link" href="#">300</a></li>
-      {% if page_obj.has_next %}
-        <li class="page-item"><a class="page-link" href="{{ page_obj.next_page_number }}">Next</a></li>
-      {% endif %}
-      <li class="page-item"><a class="page-link" href="{{ page_obj.paginator.num_pages }}">Last</a></li>
-    </ul>
-  </nav>
-
-    
 {% endblock %}
-
-
-
