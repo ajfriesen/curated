@@ -18,7 +18,7 @@ class App(models.Model):
     slug = AutoSlugField(populate_from=['app_name'])
     svg_logo = models.FileField(upload_to='logos/', default="",blank=True)
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
 
 
