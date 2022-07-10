@@ -129,25 +129,11 @@
                 </nav>
             </div>
 
-
-
-            
-
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                            <div class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
-                                {% block content %}
-                                {% endblock %}
-                            </div>
-                    </div>
+                    {% block content %}
+                    {% endblock %}
                 </main>
-
-
-
-
-
 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
