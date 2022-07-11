@@ -158,3 +158,12 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 # Celery results
 
 CELERY_RESULT_BACKEND = 'django-db'
+
+# S3 Configuration
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_ACCESS_KEY_ID = os.environ.get("MINIO_USER", "minioadmin")
+AWS_SECRET_ACCESS_KEY = os.environ.get("MINIO_PASSWORD", "minioadmin")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "curated-media")
+AWS_S3_ENDPOINT_URL = os.environ.get("MINIO_URL", "localhost:9000")
