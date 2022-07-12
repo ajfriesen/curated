@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.views.generic import ListView
 from django.views.generic.edit import FormView
+from django.contrib.auth.views import LoginView    
 from django.shortcuts import render, get_object_or_404
 
 from .models import App
@@ -46,3 +47,7 @@ class TagIndexView(TagMixin, ListView):
 
     def get_queryset(self):
         return App.objects.filter(tags__slug=self.kwargs.get('slug'))
+
+class UserLogin(LoginView):
+    template_name = "self_hosted/login.html"
+    next_page = '/'
