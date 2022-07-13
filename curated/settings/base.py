@@ -84,6 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'self_hosted.context_processors.umami_analytics'
             ],
         },
     },
@@ -166,3 +167,6 @@ AWS_ACCESS_KEY_ID = os.environ.get("MINIO_USER", "minioadmin")
 AWS_SECRET_ACCESS_KEY = os.environ.get("MINIO_PASSWORD", "minioadmin")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "curated-media")
 AWS_S3_ENDPOINT_URL = os.environ.get("MINIO_URL", "http://localhost:9000")
+
+# UMAMI_KEY = os.environ.get("UMAMI_KEY")
+# UMAMI_ADDRESS = os.environ.get("UMAMI_ADDRESS")
