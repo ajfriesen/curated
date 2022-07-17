@@ -1,8 +1,9 @@
 from django.http import Http404
 from django.views.generic import ListView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView    
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 
 from .models import App
 from .forms import AddAppForm
@@ -23,15 +24,11 @@ def detail(request, app_id):
     app = get_object_or_404(App, pk=app_id)
     return render(request, 'self_hosted/detail.html', {'app': app})
 
-class AddAppView(FormView):
-
+class AddAppView(CreateView):
+    model = App
     template_name = "self_hosted/add_app.html"
     form_class = AddAppForm
-    success_url = '/'
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+    success_url = reverse_lazy('self_hosted:app_list')
 
 class AppListView(TagMixin, ListView):
     template_name = "self_hosted/index.html"

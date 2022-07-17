@@ -10,7 +10,28 @@
             <div class="col-12">
                 <form method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    
+                    <div class="mb-3">
+                        <label for="id_app_name" class="form-label">App Name</label>
+                        <input type="text" name="app_name" maxlength="250" required id="id_app_name" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_description" class="form-label">Description</label>
+                        <textarea class="form-control" id="id_description" name="description"  rows="5"></textarea>
+                      </div>
+
+                    <label for="id_github_url" class="form-label">GitHub URL</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3">https://github.com/user/repository</span>
+                        <input type="url" class="form-control" maxlength="250" id="github_url" aria-describedby="basic-addon3">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_svg_logo" class="form-label">Logo</label>
+                        <input name="svg_logo" class="form-control" type="file" id="id_svg_logo">
+                    </div>
+                    
                     <input type="submit">
                 </form>
             </div>
