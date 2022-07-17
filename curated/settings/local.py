@@ -11,3 +11,6 @@ INTERNAL_IPS = ["127.0.0.1"]
 # ==============================================================================
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+UMAMI_KEY = os.environ.get("UMAMI_KEY")
+UMAMI_ADDRESS = os.environ.get("UMAMI_ADDRESS")
