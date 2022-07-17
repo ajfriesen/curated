@@ -8,7 +8,7 @@ from .views import AddAppView, UserLogin, home, detail, TagIndexView, AppListVie
 app_name = 'self-hosted'
 urlpatterns = [
     path('', home, name='home'),
-    path('self-hosted', AppListView.as_view(), name='index'),
+    path('self-hosted', AppListView.as_view(), name='app_list'),
     path('<int:app_id>/', detail, name='detail'),
     path('self-hosted/add_app/', AddAppView.as_view() , name="add_app"),
     path('self-hosted/tags/<slug>', TagIndexView.as_view(), name='tagged'),
