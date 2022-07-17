@@ -14,7 +14,7 @@
             {% if app.svg_logo %}
                 {% comment %} <img src="{{ app.svg_logo.url }}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="..."> {% endcomment %}
             {% else %}
-                <img src="{% static 'self_hosted/images/placeholder-image.svg' %}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
+                <img src="{% static 'self_hosted/images/placeholder.svg' %}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
           {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ app.app_name}}</h5>
