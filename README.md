@@ -60,3 +60,8 @@ docker build -t ghcr.io/ajfriesen/curated:latest . && docker push ghcr.io/ajfrie
 - [django-taggit with tag filters](https://www.youtube.com/watch?v=dZywiX-Glu4)
 - [file uploads with class based create view](https://www.youtube.com/watch?v=HSn-e2snNc8)
 - [django with minio](https://rogs.me/2021/01/using-minio-to-upload-to-a-local-s3-bucket-in-django/)
+
+
+# Look into
+
+- https://github.com/django-crispy-forms/django-crispy-forms
