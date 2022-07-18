@@ -26,6 +26,7 @@ services:
       - 9001:9001
     command:
       server /data --console-address ":9001"
+    restart: unless-stopped
 
   createbuckets:
     image: minio/mc
