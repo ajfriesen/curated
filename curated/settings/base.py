@@ -43,6 +43,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
+WAGTAIL_SITE_NAME = 'Curated-DB'
 
 # Application definition
 
@@ -56,8 +57,26 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'django_celery_results',
+
+    'streams',
+
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+
+    'modelcluster',
     'taggit',
-    'self_hosted.apps.SelfHostedConfig',
+
+    # 'self_hosted.apps.SelfHostedConfig',
+    'self_hosted_apps.apps.SelfHostedAppsConfig',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'curated.urls'

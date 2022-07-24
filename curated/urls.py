@@ -18,11 +18,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = [
-    path('', include('self_hosted.urls', namespace='self_hosted')),
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    path('pages/', include(wagtail_urls)),
+    path('', include('self_hosted_apps.urls', namespace='self_hosted_apps')),
     path('admin/', admin.site.urls),
     # path("accounts/", include("django.contrib.auth.urls")),
+    path('', include(wagtail_urls)),
 
 ]
 

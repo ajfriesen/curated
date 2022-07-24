@@ -1,8 +1,10 @@
 from .base import *
 
+WAGTAILADMIN_BASE_URL = 'localhost'
+
 INSTALLED_APPS += ["debug_toolbar"]
 
-MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
+MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 
 INTERNAL_IPS = ["127.0.0.1"]
 
