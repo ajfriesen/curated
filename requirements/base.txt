@@ -9,3 +9,4 @@ django-taggit==2.1.0
 django-storages==1.12.3
 boto3==1.24.28
 wagtail==3.0.1
+wagtailsvg==0.0.32

@@ -75,6 +75,13 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    # wagtailsvg
+    'wagtailsvg',
+    'wagtail.contrib.modeladmin',
+    'generic_chooser',
+    
+    
+
     'home',
     'self_hosted_apps.apps.SelfHostedAppsConfig',
     # 'self_hosted.apps.SelfHostedConfig',
@@ -174,6 +181,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+WAGTAILSVG_UPLOAD_FOLDER = 'svg'
 MEDIA_URL = '/media/'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 

@@ -7,6 +7,10 @@ from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.search import index
 
+from wagtailsvg.models import Svg
+from wagtailsvg.edit_handlers import SvgChooserPanel
+
+
 
 class AppPage(Page):
     """App Page model"""
@@ -23,6 +27,16 @@ class AppPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+
+    logo_svg = models.ForeignKey(
+        Svg,
+        related_name='+',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        help_text="SVG"
+    )
+
 
 
     # Search index configuration
@@ -41,6 +55,7 @@ class AppPage(Page):
         # InlinePanel('related_links', label="Related links"),
         FieldPanel('logo'),
         FieldPanel('github_link')
+        SvgChooserPanel('logo'),
     ]
 
     promote_panels = [
