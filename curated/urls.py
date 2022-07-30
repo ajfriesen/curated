@@ -32,7 +32,7 @@ urlpatterns = [
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's serving mechanism
-    path('', include(wagtail_urls))
+    path('', include(wagtail_urls)),
     
     path("accounts/", include("django.contrib.auth.urls")),
 
