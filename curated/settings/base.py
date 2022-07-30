@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_celery_results',
 
-    'streams',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -82,9 +81,12 @@ INSTALLED_APPS = [
     
     
 
+    # my apps
     'home',
     'self_hosted_apps.apps.SelfHostedAppsConfig',
     # 'self_hosted.apps.SelfHostedConfig',
+
+    'streams',
 ]
 
 MIDDLEWARE = [
