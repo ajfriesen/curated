@@ -18,8 +18,9 @@ class AppPage(Page):
     templates = "self_hosted_apps/app_page.html"
 
     github_link = models.URLField(blank=True)
+    project_website = models.URLField(blank=True)
     description = RichTextField()
-    date = models.DateField("Post date")
+
     logo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -50,12 +51,11 @@ class AppPage(Page):
     # Editor panels configuration
 
     content_panels = Page.content_panels + [
-        FieldPanel('date'),
         FieldPanel('description', classname="full"),
-        # InlinePanel('related_links', label="Related links"),
         FieldPanel('logo'),
-        FieldPanel('github_link')
         SvgChooserPanel('logo'),
+        FieldPanel('github_link'),
+        FieldPanel('project_website'),
     ]
 
     promote_panels = [
@@ -67,7 +67,7 @@ class AppPage(Page):
     # Parent page / subpage type rules
 
     parent_page_types = ['AppListPage']
-    subpage_types = []
+    
 
 
 # class AppPageRelatedLink(Orderable):
@@ -82,6 +82,8 @@ class AppPage(Page):
 
 
 class AppListPage(Page):
+
+    subpage_types = ['AppPage']
 
     subtitle = models.TextField(
         blank=True,
