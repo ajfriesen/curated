@@ -23,13 +23,18 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = [
+    # django admin
+    path('admin/', admin.site.urls),
+
+    # wagtail
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
-    path('pages/', include(wagtail_urls)),
-    path('', include('self_hosted_apps.urls', namespace='self_hosted_apps')),
-    path('admin/', admin.site.urls),
-    # path("accounts/", include("django.contrib.auth.urls")),
-    path('', include(wagtail_urls)),
+
+    # For anything not caught by a more specific rule above, hand over to
+    # Wagtail's serving mechanism
+    path('', include(wagtail_urls))
+    
+    path("accounts/", include("django.contrib.auth.urls")),
 
 ]
 
@@ -37,4 +42,6 @@ urlpatterns = [
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG == True:
-    urlpatterns += path('__debug__/', include('debug_toolbar.urls')),
+    urlpatterns = [
+        path('__debug__/', include('debug_toolbar.urls')),
+    ] + urlpatterns
