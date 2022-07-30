@@ -76,8 +76,9 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
-    # 'self_hosted.apps.SelfHostedConfig',
+    'home',
     'self_hosted_apps.apps.SelfHostedAppsConfig',
+    # 'self_hosted.apps.SelfHostedConfig',
 ]
 
 MIDDLEWARE = [
