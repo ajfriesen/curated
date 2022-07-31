@@ -1,4 +1,7 @@
+from xml.dom import ValidationErr
 from django.db import models
+from django.forms import ValidationError
+from django.core.exceptions import ValidationError
 
 from modelcluster.fields import ParentalKey
 
@@ -38,8 +41,17 @@ class AppPage(Page):
         help_text="SVG"
     )
 
+    def clean(self):
+        """Set Validation errors for page fields"""
+        
+        super().clean()
+        
+        if self.logo_svg and self.logo:
+            raise ValidationError({
+                'logo': ValidationError("If possible use SVG Logo"),
+                'logo_svg': ValidationError("You can delete the non vector Logo"),
+            })
 
-    
     # Search index configuration
 
     # search_fields = Page.search_fields + [
