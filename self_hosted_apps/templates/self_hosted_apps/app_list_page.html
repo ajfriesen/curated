@@ -12,16 +12,18 @@
 {% endif %}
 
 <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% if apps %}
-    {% for app in apps %}
+  {% if apps %}
+  {% for app in apps %}
     <div class="col pb-3">
       <div class="card h-100 text-center">
-        {% if app.logo %}
+        {% if app.logo_svg %}
+          <img src="{{app.logo_svg.url}}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
+        {% elif app.logo %}
           {% image app.logo width-3000 as card_img%}
           <img src="{{card_img.url}}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
         {% else %}
-        <img src="{% static 'images/placeholder_300x300.svg' %}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
-        {% endif%}
+          <img src="{% static 'images/placeholder_300x300.svg' %}" class="card-img-top img-fluid mx-auto w-25 p-2" alt="...">
+        {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{app.title}}</h5>
           <p class="card-text">{{app.description|richtext}}</p>
