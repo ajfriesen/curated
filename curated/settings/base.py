@@ -83,6 +83,7 @@ INSTALLED_APPS = [
 
     # my apps
     'home',
+    'generic_page',
     'self_hosted_apps.apps.SelfHostedAppsConfig',
     # 'self_hosted.apps.SelfHostedConfig',
 
