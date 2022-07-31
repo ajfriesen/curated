@@ -21,6 +21,7 @@ class AppPage(Page):
     templates = "self_hosted_apps/app_page.html"
 
     github_link = models.URLField(blank=True)
+    github_stars = models.IntegerField(blank=True, null=True)
     project_website = models.URLField(blank=True)
     description = RichTextField()
 
