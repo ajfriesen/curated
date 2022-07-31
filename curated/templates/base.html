@@ -36,8 +36,7 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="py-5">
-        </header>
+        {% include 'header.html' %}
         <!-- Page Content-->
         <section class="pt-4">
         <div class="container px-lg-5">
@@ -52,11 +51,7 @@
 
         </section>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        {% include 'footer.html' %}
         {% wagtailuserbar %}
     </body>
 </html>
