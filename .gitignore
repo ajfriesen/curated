@@ -14,3 +14,6 @@ media/
 .idea/
 .env
 .github-*
+
+# jupyter notebooks
+.ipynb_checkpoints

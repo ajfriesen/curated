@@ -65,3 +65,11 @@ docker build -t ghcr.io/ajfriesen/curated:latest . && docker push ghcr.io/ajfrie
 # Look into
 
 - https://github.com/django-crispy-forms/django-crispy-forms
+
+
+# Notebook
+
+Run the jupiter notebook for easier development
+
+`python manage.py shell_plus --notebook`
+
