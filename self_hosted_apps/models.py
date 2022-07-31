@@ -39,7 +39,7 @@ class AppPage(Page):
     )
 
 
-
+    
     # Search index configuration
 
     # search_fields = Page.search_fields + [
@@ -53,7 +53,7 @@ class AppPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
         FieldPanel('logo'),
-        SvgChooserPanel('logo'),
+        SvgChooserPanel('logo_svg'),
         FieldPanel('github_link'),
         FieldPanel('project_website'),
     ]
